@@ -1,0 +1,45 @@
+{
+  "title": "Gmail Attachment Processor Output",
+  "type": "array",
+  "schemaVersion": 1,
+  "items": {
+    "type": "object",
+    "properties": {
+      "messageId": {
+        "title": "Message ID",
+        "type": "string",
+        "description": "The unique ID assigned to the message by Gmail."
+      },
+      "subject": {
+        "title": "Email Subject",
+        "type": "string",
+        "description": "The subject line of the processed email."
+      },
+      "date": {
+        "title": "Date Received",
+        "type": "string",
+        "description": "The date the email was received."
+      },
+      "attachmentName": {
+        "title": "Attachment File Name",
+        "type": "string",
+        "description": "The file name of the extracted attachment."
+      },
+      "gmailQueryUsed": {
+        "title": "Query Used",
+        "type": "string",
+        "description": "The search query used in this specific Actor run."
+      },
+      "targetMimes": {
+        "title": "Target MIME Types",
+        "type": "array",
+        "description": "The MIME types the Actor was configured to search for."
+      },
+      "attachmentContentText": {
+        "title": "Extracted Text Content 📄",
+        "type": "string",
+        "description": "The full, extracted plain text content of the attachment, ready for LLM processing."
+      }
+    }
+  }
+}

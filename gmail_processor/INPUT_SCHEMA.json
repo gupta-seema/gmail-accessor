@@ -1,0 +1,33 @@
+{
+  "title": "Gmail Attachment Processor Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "GMAIL_CREDENTIALS_JSON": {
+      "title": "Gmail OAuth Credentials JSON (Required) 🔑",
+      "type": "string",
+      "description": "The full JSON string containing the OAuth 2.0 Refresh Token. Required for accessing Gmail. See README for setup instructions.",
+      "editor": "textarea",
+      "prefill": "{\"token\": \"ya29...\", \"refresh_token\": \"1//0gZ...\", \"client_id\": \"...\", \"client_secret\": \"...\", \"scopes\": [\"https://www.googleapis.com/auth/gmail.readonly\"], \"expiry\": \"...\"}"
+    },
+    "gmailQuery": {
+      "title": "Gmail Search Query (Filter) 🔎",
+      "type": "string",
+      "description": "A standard Gmail search query to filter messages (e.g., subject:invoice after:2024/01/01).",
+      "default": "subject:\"Rate Confirmation for order #\" has:attachment from:@scotlynn.com"
+    },
+    "attachmentMimeTypes": {
+      "title": "Target Attachment MIME Types",
+      "type": "array",
+      "description": "List of MIME types for attachments you want to process. The Actor processes the FIRST matching attachment found in an email.",
+      "default": [
+        "application/pdf"
+      ],
+      "uniqueItems": true,
+      "editor": "stringList"
+    }
+  },
+  "required": [
+    "GMAIL_CREDENTIALS_JSON"
+  ]
+}
